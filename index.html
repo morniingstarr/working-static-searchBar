@@ -4,109 +4,131 @@
     <title>Dashboard</title>
 </head> 
 
-<table class="table-fixed w-full">
+  <div class="grid xl:grid-cols-1 mt-5 mx-5">
+                    <div class="bg px-5 pt-3 pb-5 rounded btn">
+                        <div class="grid xl:grid-cols-2">
+                            <div class="1">
+                                <h1 class="text-stone-500 fntPoppins"><i class="fa-solid fa-book mr-1 icon"></i> Logs</h1>
+                            </div>
+                                <div class="2 text-right ml-auto">
+                                    <div class="sc-container">  <!-- https://github.com/dooovid/smoothcaret --> 
+                                        <input id="searchInput" data-sc="" class="smoothCaretInput w-80 dg py-2 px-3 rounded text-stone-400" placeholder="Search Logs" type="text" >
+                                        <div class="caret w-80" style="width: 2px; height: 60%; background-color: #e61b0a;" ></div>
+                                    </div>
+                                    <button onclick="search()" class=""><i class="fa-solid fa-magnifying-glass"></i></button>
+                                    <button onclick="clearHighlights()" class=""><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                        </div>
+                
+                        <table class="table-fixed w-full">
                             <thead class="">
                               <tr class="text-center">
-                                <th scope="col" class="">Pc Name</th>
-                                <th scope="col" class="">Discord Account</th>
-                                <th scope="col" class="">Ip / Country</th>
-                                <th scope="col" class="">Hardware ID</th>
-                                <th scope="col" class="">Operating System</th>
-                                <th scope="col" class="">Status</th>
-                                <th scope="col" class="">Options</th>
+                                <th scope="col" class="text-stone-400 fntPoppins font-semibold tracking-wide border-b brdDg pb-2">Pc Name</th>
+                                <th scope="col" class="text-stone-400 fntPoppins font-semibold tracking-wide border-b brdDg pb-2">Discord Account</th>
+                                <th scope="col" class="text-stone-400 fntPoppins font-semibold tracking-wide border-b brdDg pb-2">Ip / Country</th>
+                                <th scope="col" class="text-stone-400 fntPoppins font-semibold tracking-wide border-b brdDg pb-2">Hardware ID</th>
+                                <th scope="col" class="text-stone-400 fntPoppins font-semibold tracking-wide border-b brdDg pb-2">Operating System</th>
+                                <th scope="col" class="text-stone-400 fntPoppins font-semibold tracking-wide border-b brdDg pb-2">Status</th>
+                                <th scope="col" class="text-stone-400 fntPoppins font-semibold tracking-wide border-b brdDg pb-2">Options</th>
                               </tr>
                             </thead>
+
                             <tbody id="logsContent" class="mt-5">
+
                               <tr class="text-center">
-                                <td class="">Computer User</td>
-                                <td class="">@discordUser</td>
-                                <td class="">17.118.96.7 | US</td>
-                                <td class="">SA11230814203497</td>
-                                <td class=""> Windows</td>
-                                <td class=""> Online</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">Computer User</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">@discordUser</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">17.118.96.7 | US</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">SA11230814203497</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Windows</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Online</td>
                                 <td><div class="pt-5"> <!---->
-                                    <button class=""><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
+                                    <button class="bgCol px-4 py-1 rounded text-stone-300"><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
                                 </div></td>
                               </tr>
                               <tr id="searchLine" class="mt-3 text-center">
-                                <td class="">Computer User</td>
-                                <td class="">@discordUser</td>
-                                <td class="">17.118.96.7 | US</td>
-                                <td class="">SA11230814203497</td>
-                                <td class=""> Windows</td>
-                                <td class=""> Online</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">Computer User</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">@discordUser</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">17.118.96.7 | US</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">SA11230814203497</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Windows</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Online</td>
                                 <td><div class="pt-5"> <!---->
-                                    <button class=""><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
+                                    <button class="bgCol px-4 py-1 rounded text-stone-300"><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
                                 </div></td>
                               </tr>
                               <tr id="searchLine" class="mt-3 text-center">
-                                <td class="">Computer User</td>
-                                <td class="">@discordUser</td>
-                                <td class="">17.1568.96.7 | US</td>
-                                <td class="">SA11230814203497</td>
-                                <td class=""> Windows</td>
-                                <td class=""> Online</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">Computer User</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">@discordUser</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">17.1568.96.7 | US</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">SA11230814203497</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Windows</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Online</td>
                                 <td><div class="pt-5"> <!---->
-                                    <button class=""><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
+                                    <button class="bgCol px-4 py-1 rounded text-stone-300"><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
                                 </div></td>
                               </tr>
                               <tr id="searchLine" class="mt-3 text-center">
-                                <td class="">Computer User</td>
-                                <td class="">@discordUser</td>
-                                <td class="">17dg8.96.7 | US</td>
-                                <td class="">SA11230814203497</td>
-                                <td class=""> Windows</td>
-                                <td class=""> Online</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">Computer User</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">@discordUser</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">17dg8.96.7 | US</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">SA11230814203497</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Windows</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Online</td>
                                 <td><div class="pt-5"> <!---->
-                                    <button class=""><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
+                                    <button class="bgCol px-4 py-1 rounded text-stone-300"><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
                                 </div></td>
                               </tr>
                               <tr id="searchLine" class="mt-3 text-center">
-                                <td class="">Computer User</td>
-                                <td class="">@discordUser</td>
-                                <td class="">l8.96.7 | US</td>
-                                <td class="">SA11230814203497</td>
-                                <td class=""> Windows</td>
-                                <td class=""> Online</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">Computer User</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">@discordUser</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">l8.96.7 | US</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">SA11230814203497</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Windows</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Online</td>
                                 <td><div class="pt-5"> <!---->
-                                    <button class=""><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
+                                    <button class="bgCol px-4 py-1 rounded text-stone-300"><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
                                 </div></td>
                               </tr>
                               <tr id="searchLine" class="mt-3 text-center">
-                                <td class="">Computer User</td>
-                                <td class="">@discordUser</td>
-                                <td class="">2.118.96.7 | US</td>
-                                <td class="">SA11230814203497</td>
-                                <td class=""> Windows</td>
-                                <td class=""> Online</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">Computer User</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">@discordUser</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">2.118.96.7 | US</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">SA11230814203497</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Windows</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Online</td>
                                 <td><div class="pt-5"> <!---->
-                                    <button class=""><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
+                                    <button class="bgCol px-4 py-1 rounded text-stone-300"><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
                                 </div></td>
                               </tr>
                               <tr id="searchLine" class="mt-3 text-center">
-                                <td class="">Computer User</td>
-                                <td class="">@discordUser</td>
-                                <td class="">1748.96.7 | US</td>
-                                <td class="">SA11230814203497</td>
-                                <td class=""> Windows</td>
-                                <td class=""> Online</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">Computer User</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">@discordUser</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">1748.96.7 | US</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5">SA11230814203497</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Windows</td>
+                                <td class="text-stone-300 fntPoppins tracking-wide font-semibold pt-5"> Online</td>
                                 <td><div class="pt-5"> <!---->
-                                    <button class=""><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
-                                    <button class=""><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-info icon2 miAuto text-sm"></i></button>
+                                    <button class="dg px-4 py-1 rounded text-stone-400 btn2 mr-1"><i class="fa-solid fa-pen-to-square icon2 miAuto text-sm"></i></button>
+                                    <button class="bgCol px-4 py-1 rounded text-stone-300"><i class="fa-solid fa-trash miAuto text-sm"></i></button> 
                                 </div></td>
                               </tr>
+
                             </tbody>
+
                         </table>
+                    </div>
+                </div>
